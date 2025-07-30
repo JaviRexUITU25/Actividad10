@@ -9,19 +9,27 @@ for i in range(quantity):
             print("Este codigo ya existe")
         else:
             break
-        name = input("Ingrese el nombre de producto(s) a ingresar: ")
-        category = input("Ingrese la categoria de producto(s) a ingresar: ")
-        size = input("Ingrese la talla de producto(s) a ingresar: ")
-        unity = input("Ingrese el precio unitario de producto(s) a ingresar: ")
-        stock = input("Ingrese el stock de producto(s) a ingresar: ")
-        products[code] = {
-            "code": code,
-            "name": name,
-            "category": category,
-            "size": size,
-            "unity": unity,
-            "stock": stock,
-        }
+    name = input("Ingrese el nombre de producto(s) a ingresar: ")
+    category = input("Ingrese la categoria de producto(s) a ingresar: ")
+    size = input("Ingrese la talla de producto(s) a ingresar: ")
+    while True:
+        unity = int(input("Ingrese el precio unitario de producto(s) a ingresar: "))
+        if unity <=0:
+            print("El precio debe ser mayor a 0")
+            break
+    while True:
+        stock = int(input("Ingrese el stock de producto(s) a ingresar: "))
+        if stock <=0:
+            print("El stock debe ser mayor a 0")
+        break
+    products[code] = {
+        "code": code,
+        "name": name,
+        "category": category,
+        "size": size,
+        "unity": unity,
+        "stock": stock,
+    }
 print("lISTA DE PRODUCTOS\n")
 for code, dates in products.items():
     print(f"Producto #{code}: ")
